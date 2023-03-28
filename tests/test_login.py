@@ -6,7 +6,6 @@ from selenium.webdriver.common.by import By
 
 from base.webdriver_listener import WebDriverWrapper
 from pages.login_page import LoginPage
-from pages.search_product import Search_Product
 from utilities import data_source
 
 """Login related test cases """

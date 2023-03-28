@@ -17,14 +17,11 @@ class TestSearch_Product(WebDriverWrapper):
         search_page= SearchProduct(self.driver)
         search_page.enter_product_name(productname)
         search_page.click_search_icon()
-        time.sleep(5)
+        print(search_page.total_product_count())
         products=self.driver.find_elements(By.CSS_SELECTOR,'strong[class="product name product-item-name"]')
         total=len(products)
         print(total)
-        assert_that("12").is_equal_to(total)
-    # def test_empty_error_message(self):
-    #     login_page = LoginPage(self.driver)
-    #     login_page.click_on_signin()
-    #     login_page.click_on_login()
-    #     assert_that("This is a required field.").is_equal_to(login_page.get_username_invalid_error_message)
-    #     assert_that("This is a required field.").is_equal_to(login_page.get_password_invalid_error_message)
+        if total==search_page.total_product_count():
+            assert True
+        else:
+            assert False
