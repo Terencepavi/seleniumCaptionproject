@@ -17,11 +17,8 @@ class SearchProduct(WebDriverKeywords):
     def enter_product_name(self, productname):
         self.type_by_locator(self.__search_box_locator,productname)
 
-    def Actual_product_displayed(self):
-        self.length_of_element(self.__product_displayed_page)
-
     def total_product_dispalyed(self):
-        return self.get_text_by_locator(self.__product_displayed_page)
+        self.driver.find_elements(By.CSS_SELECTOR, 'strong[class="product name product-item-name"]')
 
     def total_product_count(self):
         return self.get_text_by_locator(self.__total_product_count_locator)
