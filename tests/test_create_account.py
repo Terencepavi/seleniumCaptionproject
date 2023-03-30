@@ -21,7 +21,7 @@ class TestCreateAccount(WebDriverWrapper):
         create_page.enter_lastname(lastname)
         create_page.enter_password(password)
         create_page.click_on_create_button()
-        actualerror=create_page.get_password_invalid_error_messages()
+        actualerror = self.driver.find_element((By.ID, "password-error")).text
         if actualerror==errormessage:
             assert True
 
